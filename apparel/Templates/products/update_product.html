@@ -1,0 +1,39 @@
+{% extends 'common.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="contact-img-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="con-text">
+                        <h2 class="page-title">Product</h2>
+                        <p><a href="#">Product</a> | Edit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    	<!-- pages-title-end -->
+	<div class="login-area" style="margin-bottom: 100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-push-1 col-xs-10">
+                    <div class="tb-login-form">
+                        <form id="profile_form" class="login" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                            <p class="checkout-coupon top log a-an" style="margin-bottom: 5px">
+                                {{ product_form | crispy }}
+                            </p>
+                            <p class="login-submit5" style="margin-top:15px">
+                                <input class="button-primary btn btn-success" style="color: white" type="submit" value="Update">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}

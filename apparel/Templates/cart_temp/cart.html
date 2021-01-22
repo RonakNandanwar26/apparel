@@ -1,0 +1,181 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block title %} apparel | wishlist {% endblock %}
+{% block content %}
+
+        <!-- pages-title-start -->
+		<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Cart</h2>
+                            <p><a href="#">Products</a> | Cart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- pages-title-end -->
+		<!-- wishlist content section start -->
+		<div class="shopping-cart-area nr-wish-area"  style="margin-bottom: 80px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="s-cart-all">
+                            <div class="cart-form table-responsive">
+                                <table id="shopping-cart-table" class="data-table cart-table">
+                                    <tr>
+                                        <th>Images</th>
+                                        <th class="low2">Product Name</th>
+                                        <th>Unit Price </th>
+                                        <th>Quantity</th>
+                                        <th>Amount</th>
+                                        <th>Stock Status</th>    
+                                        <th class="low1"></th>
+                                    </tr>
+                                    {% for item in items %}
+                                    <tr id="row{{item.id}}">
+                                        <td class="sop-cart">
+                                            <a href="#"><img class="primary-image" alt="" src="{{item.products.image1.url}}"></a>
+                                        </td>
+                                        <td class="sop-cart an-sh">
+                                            <div class="tb-beg">
+                                                <a href="#">{{item.products.name}}</a>
+                                            </div>
+                                            <div class="last-cart l-mrgn">
+                                                <a class="las4" href="{% url 'Home:Products:singleproduct' item.products.id %}">Quick View</a>
+                                            </div>
+                                        </td>
+                                        
+                                        <td class="sop-cart">
+                                            <div class="tb-product-price font-noraure-3">
+                                                <span class="amount">{{item.products.price}}</span>
+                                            </div>
+                                        </td>
+
+                                        <td class="sop-cart">
+                                            <div class="tb-product-price font-noraure-3">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-1"> 
+                                                    <a href=""  onclick="change_quan('{{item.id}}','plus')"><i class="fa fa-plus" style="margin-top: 12px;" ></i></a>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" type="number" name="" value="{{item.quantity}}" id= "cart{{item.id}}">
+                                                </div>
+                                                <div class="col-md-1" style="margin-left: -12px;margin-top: 10px;">
+                                                    <a href="" onclick="change_quan('{{item.id}}','minus')"><i class="fa fa-minus p-5 rounded-circle"  ></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="cen">
+                                            <span class="wishlist-in-stock">In Stock</span>
+                                        </td>
+                                        <td class="sop-icon1">
+                                            <a href="" onclick="remove_cart('{{item.id}}')">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td class="cen">
+                                            <span class="wishlist-in-stock">Total</span>
+                                        </td>
+                                        <td class="sop-cart an-sh">
+                                            <div class="tb-beg">
+                                                <a href="#"></a>
+                                            </div>
+                                            <div class="last-cart ">
+                                                <a class="" href=""></a>
+                                            </div>
+                                        </td>
+                                        <td class="sop-cart">
+                                            <div class="tb-product-price font-noraure-3">
+                                                <span class="amount"></span>
+                                            </div>
+                                        </td>
+                                        <td class="sop-cart" id="quantity">
+                                            <div class="tb-product-price font-noraure-3">
+                                                <span class="amount"></span>
+                                            </div>
+                                        </td>
+                                        <td class="cen" id="item_total">
+                                        </td>
+                                        <td class="cen">
+                                            <span class="wishlist-in-stock"></span>
+                                        </td>
+                                        <td class="sop-icon1">
+                                            <a href="#">
+                                                <i class=""></i>
+                                            </a>
+                                        </td>
+                                    </tr>    
+                                </table>
+                                <div>
+                                    <a href="{% url 'Home:Products:Cart:process_payment' %}" class="btn btn-success btn-block btn-sm" style="margin-top: 10px">
+                                        Proceed to Pay <span id="btamt"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- wishlist  content section end -->
+        <script>
+            function grandTotal(){
+                $.ajax({
+                    url:"{% url 'Home:Products:Cart:get_cart_data' %}",
+                    type:'get',
+                    success:function(data){
+                        $("#item_total").html("&#8377;"+data.total)
+                        $("#quantity").html(data.quan)
+                        $("#btamt").html("&#8377;"+data.total)
+                    }
+                })
+            }grandTotal()
+
+
+            function change_quan(id,action){
+                let old = $("#cart"+id).val();
+                
+                quan=0
+                if(action=="plus"){
+                    quan += parseInt(old)+1
+                }else{
+                    quan += parseInt(old)-1 
+                } 
+
+                $("#cart"+id).val(quan)  
+
+                $.ajax({
+                    url:"{% url 'Home:Products:Cart:change_quan' %}",
+                    type:"get",
+                    data:{cid:id,quantity:quan},
+                    success:function(data){
+                        grandTotal();
+                        if(data==0){
+                            remove_cart(id);
+                        }
+                    }
+                })
+            }
+
+
+            function remove_cart(id){
+                $.ajax({
+                    url:"{% url 'Home:Products:Cart:change_quan' %}",
+                    data:{delete_cart:id},
+                    success:function(data){
+                        grandTotal();
+                        // $('#row'+id).hide();
+                        
+                    }
+                })
+            }
+
+        </script>
+
+{% endblock %}

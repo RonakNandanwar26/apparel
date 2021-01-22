@@ -1,0 +1,49 @@
+{% extends 'common.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} apparel || Profile {% endblock %}
+
+{% block content %}
+
+    <section class="contact-img-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="con-text">
+                        <h2 class="page-title">Profile</h2>
+                        <p><a href="#">Home</a> | Profile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pages-title-end -->
+    <!-- login content section start -->
+    <div class="login-area" style="margin-bottom: 100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-push-1 col-xs-10">
+                    <div class="tb-login-form">
+                        <form id="profile_form" class="login" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                            <center><img class="rounded-circle account-img" src="{{ user.profile.file.url }}" width="270" height="270" style="border-radius: 150%"></center>
+                            <p class="checkout-coupon top log a-an" style="margin-bottom: 5px">
+                                <label for="">name</label>
+                                <td>{{user.username}}</td>
+
+                            </p>
+                            <p class="login-submit5">
+                                <input class="button-primary" type="submit" value="Update">
+                            </p>
+                        </form>
+                        {% if user.is_staff %}
+                        <form action="{% url 'Admin:user_products' user.id %}" method="post"> {% csrf_token %}
+                                <button type="submit" class="btn btn-success">List of Products</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

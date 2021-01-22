@@ -1,0 +1,41 @@
+{% extends 'common.html' %}
+{% load i18n %}
+{% load account %}
+{% block content %}
+<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Confirm yoyur Email</h2>
+                            <p><a href="#">account</a> | Confirm Email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+{% if confirmation %}
+
+    {% user_display confirmation.email_address.user as user_display %}
+    <center style="margin-bottom: 100px;margin-top: 100px">
+    <p> <h4>with confirmation.email_address.email as email Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}</h4>.</p>
+
+    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+    {% csrf_token %}
+        <p class="login-submit5">
+            <input type="submit" class="btn btn-primary" style="margin-top: 10px">
+        </p>
+    </center>
+    </form>
+
+{% else %}
+
+    {% url 'account_email' as email_url %}
+
+    <p>This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.</p>
+
+{% endif %}
+
+{% endblock %}

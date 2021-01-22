@@ -1,0 +1,8 @@
+
+{% load i18n %}
+{% load account %}
+
+{% block content %}
+    {% user_display user as user_display %}
+    <p><strong>Note:</strong> you are already logged in as {{ user_display }}.</p>
+{% endblock %}

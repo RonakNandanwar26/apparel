@@ -1,0 +1,74 @@
+{% extends 'vendor/common.html' %}
+{% load static %}
+{% block content %}
+<!-- HEADING-BANNER START -->
+<div class="heading-banner-area overlay-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="heading-banner">
+					<div class="heading-banner-title">
+						<h2>Registration</h2>
+					</div>
+					<div class="breadcumbs pb-15">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>Registration</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- HEADING-BANNER END -->
+<!-- SHOPPING-CART-AREA START -->
+<div class="login-area  pt-80 pb-80">
+	<div class="container">
+		<form class="signup" method="post" enctype="multipart/form-data" id="signup_form">{% csrf_token %}
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="customer-login text-left">
+						<h4 class="title-1 title-border text-uppercase mb-30">new customers</h4>
+						<p class="text-gray">If you have an account with us, Please login!</p><a href="{% url 'Vendor:login' %}">here...</a>
+						<input type="text" placeholder="Your name here..." name="name" required>
+						<input type="email" placeholder="Email address here..." name="email" required>
+						<input type="password" placeholder="Password" name="password1" required>
+						<input type="password" placeholder="Confirm password" name="password2" required>
+						<button type="submit" data-text="regiter" class="button-one submit-button mt-15">regiter</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- SHOPPING-CART-AREA END -->
+
+<script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/sweetalert.min.js' %}"></script>
+<script>
+    $('#signup_form').validate({
+        rules : {
+            login: "required",
+            email: {required:true,
+                    email:true},
+            password1: "required",
+            password2: "required",
+        },
+        messages: {
+            login: 'Please enter your Username',
+            email: 'Please enter your email',
+            password1: 'Please enter your password',
+            password2: {required: 'Please enter your Password again'},
+        }
+    });
+
+
+</script>
+
+
+{% endblock %}

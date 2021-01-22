@@ -1,0 +1,40 @@
+{% extends 'vendor/common.html' %}
+{% load static %}
+{% block content %}
+<!-- HEADING-BANNER START -->
+<div class="heading-banner-area overlay-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="heading-banner">
+					<div class="heading-banner-title">
+						<h2>Verification</h2>
+					</div>
+					<div class="breadcumbs pb-15">
+						<ul>
+							<li><a href="index.html">Vendor</a></li>
+							<li>Account Verification</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content-body">
+
+
+            <center>
+                <div class="col-12" style="margin-top:15%">
+                    <form method="post">
+                        {% csrf_token  %}
+                        <p>Are You Sure, <span style="color:red">You Want To Logout ?? </span></p>
+                        <button class="form-control" style="width:15%;background-color:white" > Logout </button>
+                    </form>
+                </div>
+            </center>
+
+
+        </div>
+
+{% endblock %}

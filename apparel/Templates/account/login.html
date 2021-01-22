@@ -1,0 +1,123 @@
+{% extends 'common.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} apparel || login {% endblock %}
+{% block content %}
+        <!-- pages-title-start -->
+		<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Login</h2>
+                            <p><a href="#">Home</a> | Login</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- pages-title-end -->
+		<!-- login content section start -->
+		<div class="login-area" style="margin-bottom: 100px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-push-3 col-xs-6">
+                        <div class="tb-login-form ">
+                            <h5 class="tb-title">Login</h5>
+                            <div class="tb-social-login">
+                                <a class="tb-facebook-login" href="#">
+                                    <i class="fa fa-facebook"></i>
+                                    Sign In With Facebook
+                                </a>
+                                <a class="tb-twitter-login res" href="#">
+                                    <i class="fa fa-twitter"></i>
+                                    Sign In With Twitter
+                                </a>
+                            </div>
+                            <form id="login_form" class="login" method="post" action="{% url 'account_login' %}" data-validate-username-url="{% url 'Authentication:validate_username_login' %}"> {% csrf_token %}
+                                <p class="checkout-coupon top log a-an">
+                                    <label class="l-contact">
+                                        Username
+                                        <em>*</em>
+                                    </label>
+                                    <input type="text" name="login" placeholder="Username">
+                                </p>
+                                <p class="checkout-coupon top-down log a-an">
+                                    <label class="l-contact">
+                                        Password
+                                        <em>*</em>
+                                    </label>
+                                    <input type="password" name="password" placeholder="Password">
+                                </p>
+                                <div class="forgot-password1">
+                                    <label class="inline2">
+                                        <input type="checkbox" name="rememberme7">
+                                        Remember me! <em>*</em>
+                                    </label>
+                                    <a class="forgot-password" href="{% url 'account_reset_password' %}">Forgot Your password?</a>
+                                </div>
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                {% endif %}
+                                <p class="login-submit5">
+                                    <input class="button-primary" type="submit" value="login">
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- login  content section end -->
+    <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+<script>
+    $('#login_form').validate({
+        rules : {
+            login: "required",
+            password: "required",
+        },
+        messages: {
+            login: 'Please enter your username',
+            password: 'Please enter your password',
+        }
+    });
+    $("form").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        $.ajax({
+                url: form.attr("data-validate-username-url"),
+                data: form.serialize(),
+                type: 'post',
+                context: form,
+                dataType: 'json',
+                success: function(data) {
+                    if(data.content) {
+                        console.log(data);
+                        if (data.is_taken) {
+                            console.log(data);
+                            if (!data.user) {
+                                swal({'title': 'Invalid Password', 'text': data.error_message, icon: "warning"});
+                            } else {
+                                this.off('submit');
+                                this.submit();
+                            }
+                        } else {
+                            console.log(data);
+                            swal({'title': 'Invalid Details', 'text': data.error_message, icon: "warning"});
+                        }
+                    }
+                else{
+                    console.log(data);
+                    }
+                }
+        });
+    });
+
+    
+    
+</script>
+
+        {% endblock %}

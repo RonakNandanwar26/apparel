@@ -1,0 +1,33 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block content %}	
+
+	<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Payment</h2>
+                            <p><a href="#">Payment</a> | Success</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+	<div class="conainer-fluid" >
+		<div class="row" style="margin-top: 120px;">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 mx-auto my-2 text-center" style="margin-top: 100px;margin-bottom: 100px; box-shadow: 0px 0px 10px grey"> 
+				<img src="{% static 'images/success.gif' %}" height="200" width="200">
+				<br>
+				<h1 class="alert alert-success">Payment Successfull</h1>
+				<div class='my-3'>
+					<a href="{% url 'Home:Products:shop' %}" class="btn btn-success" style="margin-bottom: 50px">Continue Shopping</a>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
+{% endblock %}

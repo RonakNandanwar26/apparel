@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6835c15c-e9eb-4e1c-91b7-a5567f064c12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vendor/mycsv.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/account/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apparel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/apparel/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apparel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apparel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1ewJF6noQA8AYCB8A6Ez2b0OjlX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../df2gspread-master/df2gspread-master" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\Templates\Vendor" />
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\Templates\Home" />
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\static\static\js" />
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\static\static\js\vendor" />
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\Templates\account" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ronak\Desktop\Proj\apparel\Templates\Home" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="apparel" type="Python.DjangoServer" factoryName="Django server">
+      <module name="apparel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="apparel.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6835c15c-e9eb-4e1c-91b7-a5567f064c12" name="Default Changelist" comment="" />
+      <created>1595226614203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595226614203</updated>
+      <workItem from="1595226638072" duration="10373000" />
+      <workItem from="1595244221237" duration="151000" />
+      <workItem from="1595244735812" duration="3156000" />
+      <workItem from="1595312194810" duration="18646000" />
+      <workItem from="1595341257655" duration="620000" />
+      <workItem from="1595393273291" duration="12416000" />
+      <workItem from="1595418856319" duration="2117000" />
+      <workItem from="1595481956023" duration="17223000" />
+      <workItem from="1595567431601" duration="1805000" />
+      <workItem from="1596107245559" duration="4774000" />
+      <workItem from="1596123439261" duration="1779000" />
+      <workItem from="1596125320182" duration="145000" />
+      <workItem from="1596172982840" duration="19275000" />
+      <workItem from="1596367543175" duration="2625000" />
+      <workItem from="1596789736854" duration="1321000" />
+      <workItem from="1596792881390" duration="58000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

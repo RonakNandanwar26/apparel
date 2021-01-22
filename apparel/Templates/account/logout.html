@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+{% load i18n %}
+{% load account %}
+
+{% block content %}
+
+    <section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Logout</h2>
+                            <p><a href="#">account</a> | logout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<center style="margin-top: 100px;"><h3 style="margin-bottom: 25px">Are you sure you want to sign out? </h3></center>
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+    <center>
+  <input type="submit" class="btn btn-primary" style="margin-bottom: 100px">
+    </center>
+</form>
+
+{% endblock %}

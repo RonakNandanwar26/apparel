@@ -1,0 +1,36 @@
+{% extends 'vendor/common.html' %}
+{% load static %}
+{% block content %}
+<!-- HEADING-BANNER START -->
+<div class="heading-banner-area overlay-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="heading-banner">
+					<div class="heading-banner-title">
+						<h2>Email Verification</h2>
+					</div>
+					<div class="breadcumbs pb-15">
+						<ul>
+							<li><a href="index.html">Vendor</a></li>
+							<li>Account Verification</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- HEADING-BANNER END -->
+<!-- SHOPPING-CART-AREA START -->
+<div class="login-area  pt-80 pb-80">
+	<div class="container">
+		<form action="{% url 'Vendor:confirm_email' %}" method="post" >{% csrf_token %}
+            <div class="row">
+                <div class="col-12 mt-10"><input type="submit" class="button button-primary button-outline">&nbsp;Verify&nbsp;</div>
+            </div>
+		</form>
+	</div>
+</div>
+<!-- SHOPPING-CART-AREA END -->
+{% endblock %}

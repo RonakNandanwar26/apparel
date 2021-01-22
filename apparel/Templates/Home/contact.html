@@ -1,0 +1,105 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block content %}
+        <!-- pages-title-start -->
+		<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Contact Us</h2>
+                            <p><a href="#">Home</a> | Contact Us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- pages-title-end -->
+		<!-- contact content section start -->
+		<section class="top-map-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="map-area">
+                            <div class="contact-map">
+                                <div>
+                                    <div class="col-lg-10 col-md-12 col-sm-7 col-xs-12 mt-xs-30">
+                                <div class="map-area" style="margin-left: 70px">
+                                    <iframe width="120%" height="600px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJa-0148KFXjkRm1yPaMZ3mtE&key=AIzaSyABGbIIqbFYjp9pFJ3IqwDD3Pw_3UQDYmw" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-title">
+                            <h2>Contact Us</h2>
+                            <h3>Our Location</h3>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <strong>http://tt_cendo.com/</strong>
+                                        <br>
+                                        <address> Address: 123 Main Street, Anytown,CA 12345 USA. </address>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <strong>Telephone</strong>
+                                        <br>
+                                        (800) 0123 456 789
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Contact Form</h3>
+                            </div>
+                            <form  id="contact_form" method="post"> {% csrf_token %}
+                                
+                                <div class="form-group required" style="margin-bottom: 5px">
+                                    <label class="col-md-2 control-label">Your Name</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" style="margin-bottom: 5px" type="text" value="" name="name" placeholder="your name here...">
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="col-md-2 control-label">E-Mail Address</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" style="margin-bottom: 5px" type="email" value="" name="email" placeholder="your email here...">
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="col-md-2 control-label">subject</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" style="margin-bottom: 5px" type="text" value="" name="subject" placeholder="subject for contact">
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="col-md-2 control-label">Message</label>
+                                    <div class="col-md-10">
+                                        <textarea class="form-control" style="margin-bottom: 15px" rows="10" name="message" placeholder="your message here..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="buttons">
+                                        <div class="pull-right">
+                                            <input class="btn btn-primary" style="margin-bottom: 100px" type="submit" value="Submit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

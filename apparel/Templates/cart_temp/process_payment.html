@@ -1,0 +1,27 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block content %}
+	<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Payment</h2>
+                            <p><a href="#">Cart</a> | Payment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+	<div class="conainer-fluid" >
+		<div class="row">
+			<div class="col-md-12 mx-auto my-5 p-5 text-center" style="margin-top: 100px;margin-bottom: 100px"> <h3>Click Buy Now to make Payment</h3>
+				{{form.render}}
+			</div>
+			
+		</div>
+	</div>
+
+{% endblock %}

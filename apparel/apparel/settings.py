@@ -193,6 +193,6 @@ EMAIL_HOST_PASSWORD = '**** Your Password ****'
 
 # paypal Integration
 
-PAYPAL_RECEIVER_EMAIL = 'ronaknandanwar10@gmail.com'
+PAYPAL_RECEIVER_EMAIL = '**** Your Paypal Developer email ****'
 
 PAYPAL_TEST = True

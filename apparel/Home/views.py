@@ -29,7 +29,7 @@ def contact(request):
             message = 'Stay Connected. We would love to hear you!'
             email_from = settings.EMAIL_HOST_USER
             email_to = [contact_email, ]
-            send_mail(subject, message, email_from, email_to)
+            send_mail(sub, content, email_from, email_to)
             messages.success(request, 'Form submitted successfully.')
             return redirect('Home:Home')
         else:

@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import ProductForm
+from .forms import ProductForm,Rating_Form
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Product
+from .models import Product,Ratings
 from .forms import ProductForm
 from django.db.models import Q
+from django.http import HttpResponse,HttpResponseRedirect
 # Create your views here.
 
 
@@ -36,8 +37,9 @@ def productcreate(request):
 
 def singleproduct(request,pk):
     product = get_object_or_404(Product,pk=pk)
+    review = Ratings.objects.filter(product__id=pk)
     template = 'products/singleproduct.html'
-    return render(request,template,{'product':product})
+    return render(request,template,{'product':product,'ratings':review})
 
 
 
@@ -82,3 +84,28 @@ def search(request):
         # prd = Product.objects.filter(Q(name__contains=srh) & Q(price__lt=p)) # search by product name and and price less than use two search field in html
     return render(request,template,{'products':prd})
 
+
+def winter(request):
+    prod = Product.objects.filter(category__name ='Winter')
+    template = 'products/my_products.html'
+    return render(request,template,{'products':prod})
+
+
+@login_required
+def ratings(request,pk):
+    url = request.META.get('HTTP_REFERER')
+    if request.method == "POST":
+        form = Rating_Form(request.POST)
+        if form.is_valid():
+            data = Ratings()
+            data.subject = request.POST['subject']
+            data.comment = request.POST['comment']
+            data.rate = request.POST['rate']
+            data.product_id = pk
+            usr = request.user
+            data.user_id = usr.id
+            data.save()
+            messages.success(request,'Your Review submitted successfully')
+            return HttpResponseRedirect(url)
+    else:
+        return redirect('account_login')

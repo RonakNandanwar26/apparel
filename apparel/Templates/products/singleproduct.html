@@ -125,51 +125,51 @@
                                     <div class="tab-content tab-con2">
                                         <div role="tabpanel" class="tab-pane active" id="home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue. Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. </div>
                                         <div role="tabpanel" class="tab-pane" id="profile">
-                                            <form class="form-horizontal">
+
+
                                                 <div id="review">
-                                                    <table class="table table-striped table-bordered">
-                                                        <tr>
-                                                            <td style="width: 50%;">
-                                                                <strong>demo</strong>
-                                                            </td>
-                                                            <td class="text-right">25/01/2016</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <p class="text an-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet sem varius, fringilla erat a, blandit arcu. Cras sit amet justo eu erat imperdiet dictum ac eget nulla. Aliquam erat volutpat.</p>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star fa-stack-2x"></i>
-                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
-                                                                </span>
-                                                                <span class="fa fa-stack">
-                                                                    <i class="fa fa-star-o fa-stack-2x"></i>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="text-right"></div>
-                                                </div>
+                                                    {% for rating in ratings %}
+                                                        <table class="table table-striped table-bordered">
+                                                            <tr>
+                                                                <td style="width: 50%;">
+                                                                    <strong>{{ rating.user.username }}</strong>
+                                                                </td>
+                                                                <td style="width: 50%;">
+                                                                    <strong>{{ rating.subject }}</strong>
+                                                                </td>
+                                                                <td class="text-right">{{ rating.created_at }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <p class="text an-text">{{ rating.comment }}</p>
+                                                                    <i class="fa fa-star{% if rating.rate < 1 %}-o empty{% endif %}"></i>
+                                                                    <i class="fa fa-star{% if rating.rate < 2 %}-o empty{% endif %}"></i>
+                                                                    <i class="fa fa-star{% if rating.rate < 3 %}-o empty{% endif %}"></i>
+                                                                    <i class="fa fa-star{% if rating.rate < 4 %}-o empty{% endif %}"></i>
+                                                                    <i class="fa fa-star{% if rating.rate < 5 %}-o empty{% endif %}"></i>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <div class="text-right"></div>
+                                                    {% endfor %}
+                                                    </div>
+
+
+                                            <form class="form-horizontal" action="{% url 'Home:Products:ratings' product.id %}" method="post"> {% csrf_token %}
+
+
+
                                                 <h2 class="write">Write a review</h2>
                                                 <div class="form-group required">
                                                     <div class="col-sm-12">
-                                                        <label class="control-label" for="input-name">Your Name</label>
-                                                        <input id="input-name" class="form-control" type="text" value="" name="name">
+                                                        <label class="control-label" >Your Subject</label>
+                                                        <input id="input-subject" class="form-control" type="text" value="" name="subject">
                                                     </div>
                                                 </div>
                                                 <div class="form-group required">
                                                     <div class="col-sm-12">
                                                         <label class="control-label" for="input-review">Your Review</label>
-                                                        <textarea id="input-review" class="form-control" rows="5" name="text"></textarea>
+                                                        <textarea id="input-review" class="form-control" rows="5" name="comment"></textarea>
                                                         <div class="help-block">
                                                             <span class="text-danger">Note:</span>
                                                             HTML is not translated!
@@ -180,11 +180,11 @@
                                                     <div class="col-sm-12">
                                                         <label class="control-label">Rating</label>
                                                             Bad 
-                                                        <input type="radio" value="1" name="rating">
-                                                        <input type="radio" value="2" name="rating">
-                                                        <input type="radio" value="3" name="rating">
-                                                        <input type="radio" value="4" name="rating">
-                                                        <input type="radio" value="5" name="rating">
+                                                        <input type="radio" value="1" name="rate">
+                                                        <input type="radio" value="2" name="rate">
+                                                        <input type="radio" value="3" name="rate">
+                                                        <input type="radio" value="4" name="rate">
+                                                        <input type="radio" value="5" name="rate">
                                                          Good
                                                     </div>
                                                 </div>
@@ -196,7 +196,7 @@
                                                 </div>
                                                 <div class="buttons si-button">
                                                     <div class="pull-right">
-                                                        <button id="button-review" class="btn btn-primary" data-loading-text="Loading..." type="button">Continue</button>
+                                                        <button id="button-review" class="btn btn-primary" data-loading-text="Loading..." type="submit">Continue</button>
                                                     </div>
                                                 </div>
                                             </form>

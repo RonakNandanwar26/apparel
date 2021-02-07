@@ -1,4 +1,4 @@
-from .models import Product
+from .models import Product,Ratings
 from django import forms
 
 class ProductForm(forms.ModelForm):
@@ -14,3 +14,9 @@ class ProductForm(forms.ModelForm):
 			'quantity':forms.TextInput(attrs={'class':'form-control'}),
 			'features':forms.Textarea(attrs={'class':'form-control'})
 		}
+
+
+class Rating_Form(forms.ModelForm):
+	class Meta:
+		model = Ratings
+		fields = ['subject','comment','rate']

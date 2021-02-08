@@ -69,9 +69,6 @@ class Product(models.Model):
     smart3 = ImageSpecField(source='image3', processors=[ResizeToFill(250, 350)], format='JPEG', options={'quality': 99})
     smart4 = ImageSpecField(source='image4', processors=[ResizeToFill(250, 350)], format='JPEG', options={'quality': 99})
     video1 = models.FileField(default='default.mp4', upload_to=upload_product_video_path, null=True, blank=True)
-    video2 = models.FileField(default='default.mp4', upload_to=upload_product_video_path, null=True, blank=True)
-    video3 = models.FileField(default='default.mp4', upload_to=upload_product_video_path, null=True, blank=True)
-    video4 = models.FileField(default='default.mp4', upload_to=upload_product_video_path, null=True, blank=True)
 
 
     def __str__(self):

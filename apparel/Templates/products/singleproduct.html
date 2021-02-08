@@ -114,30 +114,6 @@
                             <!-- Video files -->
                             <source src="{{product.video1.url}}" type="video/mp4" size="576"/>
                          </video>
-                        {% for product in products %}
-                        <video controls crossorigin playsinline id="player" style="width:1000px">
-                            <!-- Video files -->
-                            <source src="{{product.video2.url}}" type="video/mp4" size="576"/>
-                         </video>
-                        {% endfor %}
-
-                        {% for product in products %}
-                        <video controls crossorigin playsinline id="player" style="width:1000px">
-                            <!-- Video files -->
-                            <source src="{{product.video3.url}}" type="video/mp4" size="576"/>
-                         </video>
-                        {% endfor %}
-
-                        {% for product in products %}
-                        <video controls crossorigin playsinline id="player" style="width:1000px">
-                            <!-- Video files -->
-                            <source src="{{product.video4.url}}" type="video/mp4" size="576"/>
-                         </video>
-                        {% endfor %}
-
-
-
-
 
                         <div class="embed-responsive embed-responsive-21by9">
                           <iframe class="embed-responsive-item" src="{{product.video1.url}}"></iframe>
@@ -242,10 +218,6 @@
                 </div>
             </div>
         </section>
-
-    <div class="embed-responsive embed-responsive-21by9">
-  <iframe class="embed-responsive-item" src="{{product.video1.url}}"></iframe>
-</div>
 
 
 

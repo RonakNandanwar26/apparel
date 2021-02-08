@@ -1,0 +1,43 @@
+{% extends 'common.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block title %} apparel || login {% endblock %}
+{% block content %}
+        <!-- pages-title-start -->
+		<section class="contact-img-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="con-text">
+                            <h2 class="page-title">Add Category</h2>
+                            <p><a href="#">Home</a> | Login</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- pages-title-end -->
+		<!-- login content section start -->
+		<div class="login-area" style="margin-bottom: 100px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-push-3 col-xs-6">
+                        <div class="tb-login-form ">
+                            <h5 class="tb-title">Add Category</h5>
+                            <form method="post"> {% csrf_token %}
+                                {{ form | crispy }}
+                                <p class="login-submit5">
+                                <input class="button-primary" type="submit" value="Submit">
+                            </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- login  content section end -->
+
+
+        {% endblock %}

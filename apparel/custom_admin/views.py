@@ -4,8 +4,11 @@ import sqlite3
 import os
 from django.contrib.auth.models import User
 from Home.models import Profile
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from products.models import Product
+from .forms import CatForm
+from products.models import Category
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -70,3 +73,41 @@ def user_products(request,pk):
 
     return HttpResponse(1)
 
+
+
+def add_cat(request):
+    if request.session.get('admin'):
+        if request.method == "POST":
+            form = CatForm(request.POST or None)
+            print('before valid')
+            if form.is_valid():
+                print('form valid')
+                form.save()
+                messages.success(request, "Category is added Successfully..")
+                return redirect('Admin:home')
+            else:
+                messages.error(request, 'Please correct the error below.')
+        else:
+            form = CatForm()
+        template = 'custom_admin/add_cat.html'
+        return render(request, template, {'form': form})
+    else:
+        return redirect('Admin:login')
+#
+# def ratings(request,pk):
+#     url = request.META.get('HTTP_REFERER')
+#     if request.method == "POST":
+#         form = Rating_Form(request.POST)
+#         if form.is_valid():
+#             data = Ratings()
+#             data.subject = request.POST['subject']
+#             data.comment = request.POST['comment']
+#             data.rate = request.POST['rate']
+#             data.product_id = pk
+#             usr = request.user
+#             data.user_id = usr.id
+#             data.save()
+#             messages.success(request,'Your Review submitted successfully')
+#             return HttpResponseRedirect(url)
+#     else:
+#         return redirect('account_login')

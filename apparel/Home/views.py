@@ -8,8 +8,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def Home(request):
-    template = 'Home/index.html'
-    return render(request, template, {})
+    try:
+        template = 'Home/index.html'
+        return render(request, template, {})
+    except:
+        return render(request, 'Home/404.html', {})
+
 
 def about(request):
     template = 'Home/about.html'
@@ -27,9 +31,9 @@ def contact(request):
             form.save()
             subject = 'Hello ' + contact_name + ' from apparel!'
             message = 'Stay Connected. We would love to hear you!'
-            email_from = settings.EMAIL_HOST_USER
+            email_from = settings.EMAIL_HOST_1USER
             email_to = [contact_email, ]
-            send_mail(sub, content, email_from, email_to)
+            send_mail(subject, message, email_from, email_to)
             messages.success(request, 'Form submitted successfully.')
             return redirect('Home:Home')
         else:

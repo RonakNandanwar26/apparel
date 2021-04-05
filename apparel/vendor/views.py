@@ -41,6 +41,7 @@ def register(request):
     return render(request,template)
 
 
+
 def please_verify(request):
     template = 'vendor/account/verification_sent.html'
     return render(request,template)
@@ -64,7 +65,6 @@ def confirm_email(request):
 
 def home(request):
     template = 'vendor/index.html'
-
     if request.session.get('vendor') == None:
         return redirect('Vendor:login')
 
@@ -120,7 +120,6 @@ def forgot_password(request):
             is_email = User.objects.filter(email__iexact=email).exists()
             if is_email:
                 OTP = random.randint(111111,999999)
-
                 subject = "Password Reset OTP @apparel_vendor"
                 message = "Your OTP is, " + str(OTP) + " .Please Follow This Link, --> http://127.0.0.1:8000/vendor/otp_verify"
                 email_from = settings.EMAIL_HOST_USER

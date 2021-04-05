@@ -9,6 +9,13 @@ from products.models import Product
 from .forms import CatForm
 from products.models import Category
 from django.contrib import messages
+import csv
+import datetime
+
+from django.template.loader import render_to_string
+from weasyprint import HTML
+import tempfile
+from django.db.models import Sum
 
 # Create your views here.
 def home(request):
@@ -111,3 +118,42 @@ def add_cat(request):
 #             return HttpResponseRedirect(url)
 #     else:
 #         return redirect('account_login')
+
+
+def export_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=users' + str(datetime.datetime.now()) + '.csv'
+
+    writer = csv.writer(response)
+    users = User.objects.all()
+    writer.writerow(['Username','Email'])
+    for user in users:
+        writer.writerow([user.username,user.email])
+
+    return response
+
+
+# export pdf
+# pip install WeasyPrint
+
+
+def export_pdf(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'inline; attachment; filename=users' + str(datetime.datetime.now()) + '.pdf'
+    response['Content-Transfer-Encoding'] = 'binary'
+
+    users = User.objects.all()
+
+    html_string = render_to_string('custom_admin/user_pdf.html',{'users':users})
+    html = HTML(string=html_string)
+    result = html.write_pdf()
+
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+        output.write(result)
+        output.flush()
+
+        output = open(output.name,'rb')
+        response.write(output.read())
+
+    return response
+

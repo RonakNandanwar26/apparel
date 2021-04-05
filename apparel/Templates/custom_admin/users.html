@@ -16,6 +16,8 @@
                             <div class="box-inn-sp">
                                 <div class="inn-title">
                                     <h4>Listing All</h4>
+                                    <a href="{% url 'Admin:export_csv' %}" class="btn btn-success">Export to csv</a>
+                                    <a href="{% url 'Admin:export_pdf' %}" class="btn btn-primary">Export to PDF</a>
                                     <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                                     <a class="dropdown-button drop-down-meta" href="#" data-activates="dr-users"><i class="material-icons">more_vert</i></a>
                                     <ul id="dr-users" class="dropdown-content">
@@ -51,10 +53,10 @@
                                             </thead>
                                             <tbody>
                                                 {% for user in users %}
-                                                <tr>
+                                     <tr>
                                                     <td><a href="{% url 'Admin:profile' user.id %}"><span class="list-enq-name">{{user.username}}</span><span class="list-enq-city">Illunois, United States</span></a>
                                                     </td>
-                                                    <td><a href="{{ user.profile.tel }}</td>
+                                                    <td><a href="">{{ user.profile.tel }}</td>
                                                     <td>{{ user.email }}</td>
                                                     <td>{{ user.profile.address }}</td>
                                                     <td>

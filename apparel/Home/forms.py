@@ -7,7 +7,6 @@ class ContactForm(forms.ModelForm):
         fields = "__all__"
 
 
-
 class UserForm(forms.ModelForm):
     username = forms.CharField(max_length=20, disabled=True, widget=forms.TextInput(
         attrs={

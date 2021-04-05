@@ -2,20 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6835c15c-e9eb-4e1c-91b7-a5567f064c12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vendor/mycsv.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/account/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apparel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/apparel/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apparel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apparel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/Home/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Home/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/account/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/account/password_change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/common.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/common.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/custom_admin/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/custom_admin/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/products/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/products/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Templates/vendor/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/vendor/account/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/views.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,11 +42,17 @@
   </component>
   <component name="ProjectId" id="1ewJF6noQA8AYCB8A6Ez2b0OjlX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../df2gspread-master/df2gspread-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Sample_Programs" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -56,18 +66,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ronak\Desktop\Proj\apparel\Templates\Home" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="apparel" type="Python.DjangoServer" factoryName="Django server">
@@ -95,6 +93,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -132,12 +131,11 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

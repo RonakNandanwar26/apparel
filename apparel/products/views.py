@@ -66,7 +66,7 @@ def delete_product(request,pk):
 
 
 
-
+@login_required
 def my_products(request):
     my_products = Product.objects.filter(user__id=request.user.id)
     template = 'products/my_products.html'

@@ -137,23 +137,49 @@ def export_csv(request):
 # pip install WeasyPrint
 
 
+# def export_pdf(request):
+#     response = HttpResponse(content_type='application/pdf')
+#     response['Content-Disposition'] = 'inline; attachment; filename=users' + str(datetime.datetime.now()) + '.pdf'
+#     response['Content-Transfer-Encoding'] = 'binary'
+#
+#     users = User.objects.all()
+#
+#     html_string = render_to_string('custom_admin/user_pdf.html',{'users':users})
+#     html = HTML(string=html_string)
+#     result = html.write_pdf()
+#
+#     with tempfile.NamedTemporaryFile(delete=True) as output:
+#         output.write(result)
+#         output.flush()
+#
+#         output = open(output.name,'rb')
+#         response.write(output.read())
+#
+#     return response
+#
+from reportlab.platypus import SimpleDocTemplate,Table
+from reportlab.lib.pagesizes import letter
+import pandas as pd
+from reportlab.pdfgen import canvas
+from reportlab.lib import pdfencrypt
+
 def export_pdf(request):
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'inline; attachment; filename=users' + str(datetime.datetime.now()) + '.pdf'
-    response['Content-Transfer-Encoding'] = 'binary'
+    conn = sqlite3.connect('db.sqlite3')
+    cursor = conn.cursor()
+    df = pd.read_sql_query("""SELECT * FROM auth_user""", conn)
+    df = df.drop(['password','last_login','is_superuser','is_staff','is_active','date_joined'],axis=1)
+    df = df.values.tolist()
 
-    users = User.objects.all()
-
-    html_string = render_to_string('custom_admin/user_pdf.html',{'users':users})
-    html = HTML(string=html_string)
-    result = html.write_pdf()
-
-    with tempfile.NamedTemporaryFile(delete=True) as output:
-        output.write(result)
-        output.flush()
-
-        output = open(output.name,'rb')
-        response.write(output.read())
-
-    return response
+    print(df)
+    # filename = 'user_data.pdf'
+    # pdf = SimpleDocTemplate(
+    #     filename,
+    #     pagesize=letter
+    # )
+    #
+    # table = Table(df)
+    # elems = []
+    # elems.append(table)
+    # return pdf.build(elems)
+    return HttpResponse(1)
 

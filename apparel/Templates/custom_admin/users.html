@@ -16,8 +16,8 @@
                             <div class="box-inn-sp">
                                 <div class="inn-title">
                                     <h4>Listing All</h4>
-                                    <a href="{% url 'Admin:export_csv' %}" class="btn btn-success">Export to csv</a>
-                                    <a href="{% url 'Admin:export_pdf' %}" class="btn btn-primary">Export to PDF</a>
+<!--                                    <a href="{% url 'Admin:export_csv' %}" class="btn btn-success">Export to csv</a>-->
+<!--                                    <a href="{% url 'Admin:export_pdf' %}" class="btn btn-primary">Export to PDF</a>-->
                                     <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                                     <a class="dropdown-button drop-down-meta" href="#" data-activates="dr-users"><i class="material-icons">more_vert</i></a>
                                     <ul id="dr-users" class="dropdown-content">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="tab-inn">
                                     <div class="table-responsive table-desi">
-                                        <table class="table table-hover">
+                                        <table id="example" class="display nowrap" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>User</th>
@@ -106,6 +106,20 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript">
+        $('example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+        })
+    </script>
+
 </body>
 
 
